@@ -45,7 +45,7 @@ export const Main = ({ handleSubmit, setToken }: Props) => {
                   setToken(e.target.value)
                   handleChange(e)
                 }}
-                className="w-full col-span-1 my-6 lg:my-0 bg-primaryBg rounded text-primaryText focus:ring-primaryText focus:ring-6 focus:ring-offset-0 pl-4 font-semibold text-xl"
+                className="w-full col-span-1 my-6 py-5 lg:py-0 lg:my-0 bg-primaryBg rounded text-primaryText focus:ring-primaryText focus:ring-6 focus:ring-offset-0 pl-4 font-semibold text-xl"
               >
                 <option value="DAI" className="w-full col-span-1 my-6 lg:my-0 bg-primaryBg text-primaryText pl-4 font-semibold text-xl">Dai</option>
                 <option value="ETHER" className="w-full col-span-1 my-6 lg:my-0 bg-primaryBg text-primaryText pl-4 font-semibold text-xl">Ether</option>
