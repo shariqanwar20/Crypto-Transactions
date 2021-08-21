@@ -43,7 +43,9 @@ function App() {
     try {
       await window.ethereum.enable();
       /* get user's balance */
-      setBalance(await getAccountBalance(web3!, walltetAddresses[0],  token === tokenType.dai? tokenAddresses.dai.address : undefined));
+      const web3 = new Web3(window.ethereum);
+      const _walltetAddresses = await web3.eth.getAccounts()
+      setBalance(await getAccountBalance(web3, _walltetAddresses[0],  token === tokenType.dai? tokenAddresses.dai.address : undefined));
       return true;
     } catch (error) {
       return false;
