@@ -1,28 +1,20 @@
 import Web3 from "web3";
 import { tokenABI } from "../constants";
 
-/* get ether token balancein your wallet */
-// export const getEthBalance = async (web3: Web3, walletAddress: string) => {
-//   let balance = await web3.eth.getBalance(walletAddress);
-//   return web3.utils.fromWei(balance, "ether");
-// };
-
-/* get any ERC-20 token balance in your wallet */
+/* get any ERC-20 or ether token balance in your wallet */
 export const getAccountBalance = async (
   web3: Web3,
   walletAddress: string,
-  contractAddress?: string
+  contractAddress: string | undefined
 ) => {
-    if (contractAddress === undefined) {
-        let balance = await web3.eth.getBalance(walletAddress);
-        return web3.utils.fromWei(balance, "ether");
-    }
-    else {
-        const contract = new web3.eth.Contract(tokenABI, contractAddress);
-        const balance = await contract.methods.balanceOf(walletAddress).call();
-        return web3.utils.fromWei(balance.toString());
-    }
-
+  if (contractAddress === undefined) {
+    let balance = await web3.eth.getBalance(walletAddress);
+    return web3.utils.fromWei(balance, "ether");
+  } else {
+    const contract = new web3.eth.Contract(tokenABI, contractAddress);
+    const balance = await contract.methods.balanceOf(walletAddress).call();
+    return web3.utils.fromWei(balance.toString());
+  }
 };
 
 export const sendTransaction = async (
@@ -30,14 +22,18 @@ export const sendTransaction = async (
   walletAddress: string,
   toAddress: string,
   amountToSend: number,
-  contractAddress?: string
+  contractAddress: string | undefined
 ) => {
   let trans: any, contract: any;
   if (contractAddress !== undefined) {
     contract = new web3.eth.Contract(tokenABI, contractAddress);
   }
 
-  let currentBalance: string = await getAccountBalance(web3, walletAddress, contractAddress)
+  let currentBalance: string = await getAccountBalance(
+    web3,
+    walletAddress,
+    contractAddress
+  );
 
   if (Number(currentBalance) > amountToSend) {
     contractAddress !== undefined
