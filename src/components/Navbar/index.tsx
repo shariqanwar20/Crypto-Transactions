@@ -6,7 +6,7 @@ type Props = {
   handleLogin: () => Promise<boolean>
   balance: string
 }
-export default ({ handleLogin, balance }: Props) => {
+export const Navbar = ({ handleLogin, balance }: Props) => {
   return (
     <Disclosure as="nav" className="bg-primaryBg fixed w-full z-10">
       {({ open }) => (

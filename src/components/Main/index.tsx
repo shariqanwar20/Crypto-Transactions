@@ -7,7 +7,7 @@ type Props = {
   setToken: any
 }
 
-export default ({ handleSubmit, setToken }: Props) => {
+export const Main = ({ handleSubmit, setToken }: Props) => {
   return (
     <div
       className="bg-secondaryBg py-8 h-screen"

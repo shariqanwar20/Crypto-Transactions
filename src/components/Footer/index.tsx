@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+export const Footer = () => {
     return (
         <footer className="bg-primaryBg py-8">
             <div className="text-primaryText text-center font-xl font-sans font-semibold">

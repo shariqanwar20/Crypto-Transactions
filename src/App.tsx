@@ -1,6 +1,6 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
+import {Navbar} from "./components/Navbar";
+import {Footer} from "./components/Footer";
+import {Main} from "./components/Main";
 import React, { useEffect, useState } from "react";
 import { getAccountBalance, sendTransaction } from "./Web3";
 import Web3 from "web3";
